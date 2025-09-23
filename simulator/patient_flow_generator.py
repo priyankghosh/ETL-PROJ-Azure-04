@@ -6,9 +6,9 @@ from datetime import datetime, timedelta
 from kafka import KafkaProducer
 
 #Eventhub Configuration
-EVENTHUBS_NAMESPACE = "your-eventhub-namespace>"
-EVENT_HUB_NAME="your-eventhub-name"  
-CONNECTION_STRING = "your-eventhub-connection-string(primary)"
+EVENTHUBS_NAMESPACE = "<workspace-host-name>"
+EVENT_HUB_NAME = "<eventhub-name>"
+CONNECTION_STRING = "<connection-string>"
 
 producer = KafkaProducer(
     bootstrap_servers=[f"{EVENTHUBS_NAMESPACE}:9093"],
