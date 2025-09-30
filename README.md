@@ -33,11 +33,7 @@
 
 ## 📌 Project Overview
 This project demonstrates a **real-time data engineering pipeline** for healthcare, designed to analyze **patient flow across hospital departments** using Azure cloud services.  
-The pipeline ingests streaming data, processes it in **Databricks (PySpark)**, and stores it in **Azure Synapse SQL Pool** for analytics and visualization.
-
-**Part 1 – Data Engineering:** Build the real-time ingestion + transformation pipeline.  
-**Part 2 – Analytics:** Connect Synapse to Power BI and design an interactive dashboard for hospital KPIs.
-
+The pipeline ingests streaming data, processes it in **Databricks (PySpark)**, and stores it in **Azure Synapse SQL Pool** for analytics and finally visualisation in Power BI and design an interactive dashboard for hospital KPIs.
 
 ## Pipeline
 
@@ -56,21 +52,27 @@ The pipeline ingests streaming data, processes it in **Databricks (PySpark)**, a
 ---
 
 ## 📂 Project Structure
-```plaintext
-real-time-patient-flow-azure/
-│
-├── databricks-notebooks/  # Transformation notebooks
-│   ├── 01_bronze_rawdata.py
-│   ├── 02_silver_cleandata.py
-│   └── 03_gold_transform.py
-├── simulator/             # Data simulation scripts
-│   └── patient_flow_generator.py
-├── sqlpool-quries/        # SQL scripts for Synapse
-│   └── Pre-Requisites.sql
-|   ├── Tables.py
-│   └── Final Business Views.py
-├── git_commands/                  # Git Commands
-└── README.md              # Project documentation
+```
+ETL-PROJ-AZURE-DATABRICKS_04/
+    ├── client_requirements/
+    │   └── client_requirements_de.pdf       # Demo Client Requirement
+    ├── databricks-notebooks/
+    │   ├── 01-bronzerawdata.ipynb           # Data Ingestion & Raw Layer (Bronze) Notebook
+    │   ├── 02-silver-cleandata.ipynb        # Data Cleaning & Conformed Layer (Silver) Notebook
+    │   └── 03-gold-transform.ipynb          # Data Transformation & Aggregate Layer (Gold) Notebook
+    ├── powerbi/
+    │   └── Healthcare_Visualisation-Dashboard.pbix # Power BI Dashboard file
+    ├── simulator/
+    │   └── patient_flow_generator.py        # Python script for generating simulated data
+    ├── snaps/                               # Directory for screenshots or reference images
+    │   └── rg-snap.PNG                      # Snapshot of a Resource Group or similar
+    ├── sqlpool-queries/                     # Dedicated SQL scripts for the data warehouse (Synapse SQL Pool)
+    │   ├── Final Business Views.sql         # Final SQL views for reporting/consumption
+    │   ├── Pre-Requisites.sql               # SQL scripts for setting up necessary objects
+    │   └── Tables.sql                       # SQL scripts for table creation/DDL
+    ├── .gitignore                           # Git ignore fileinformation/notes
+    └── README.md                            # Main project documentation (where this structure goes)
+
 ```
 
 ---
@@ -152,7 +154,7 @@ Once the **data pipeline** was established and a **Star Schema** implemented in 
 - Imported **FactPatientFlow** and **Dimension tables**.  
 - Established relationships for **Star Schema-based reporting**.  
 
-
+<br />
 
 ## ✅ Key Outcomes
 - **End-to-End Pipeline:** From **real-time ingestion → transformation → warehouse → analytics**.  
